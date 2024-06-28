@@ -97,3 +97,16 @@ body {
 p {
   color: #666;
 }
+
+/* This is BAD for accessibility! Don't do in the real world! */
+button:focus {
+  outline: none;
+}
+
+img {
+  transition: filter 0.5s;
+}
+
+.lazy-img {
+  filter: blur(20px);
+}
