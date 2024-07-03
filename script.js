@@ -225,6 +225,26 @@ const slider = function () {
     activateDot(0);
   };
   init();
+
+  // Event Handlers
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
+
+  document.addEventListener("keydown", function (e) {
+    e.key === "ArrowRight" && nextSlide();
+    // if(e.key === "ArrowRight") nextSlide();
+    e.key === "ArrowLeft" && prevSlide();
+    // if(e.key === "ArrowLeft") prevSlide();
+  });
+
+  dotContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("dots__dot")) {
+      // const slide = e.target.dataset.slide;
+      const { slide } = e.target.dataset; // Destructuring
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
 };
 
 slider();
